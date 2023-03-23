@@ -21,3 +21,11 @@ def test_calculate_total_price(expl1):
 def test_apply_discount(expl1):
     Item.apply_discount(expl1)
     assert expl1.price == 10000.0
+
+def test_string_to_number():
+    Item.all.clear()
+    assert Item.string_to_number('5') == 5
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5
