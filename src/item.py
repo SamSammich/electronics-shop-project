@@ -1,4 +1,6 @@
 import csv
+
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -42,6 +44,7 @@ class Item:
         Применяет установленную скидку для конкретного товара.
         """
         self.price = self.price * self.pay_rate
+
     @classmethod
     def instantiate_from_csv(cls):
         with open('./src/items.csv', 'r') as csv_row:
@@ -54,3 +57,12 @@ class Item:
         b = float(a)
         return int(b)
 
+    def __str__(self):
+        return self.__name
+
+    def __repr__(self):
+        return f"Item('{self.__name}', {self.price}, {self.quantity})"
+
+item1 = Item("Смартфон", 10000, 20)
+print(repr(item1))
+print(str(item1))
